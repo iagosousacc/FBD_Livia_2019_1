@@ -8,9 +8,9 @@ WHERE carga_horaria = 60;
 SELECT p.nome, d.nome FROM universidade.professor p, universidade.disciplina d, universidade.ministra m
 WHERE p.siape = m.siape and d.cod_disciplina = m.cod_disciplina and m.periodo = '2013.2';
 -- 4 --
-SELECT nome FROM universidade.professor
+SELECT DISTINCT p.nome FROM universidade.professor p
 WHERE NOT EXISTS
-(SELECT DISTINCT p.nome FROM universidade.professor p, universidade.ministra m
+(SELECT DISTINCT m FROM universidade.ministra m
 WHERE p.siape = m.siape);
 -- 5 --
 SELECT nome FROM universidade.professor
